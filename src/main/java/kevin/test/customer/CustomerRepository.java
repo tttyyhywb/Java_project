@@ -1,4 +1,4 @@
-package kevin.test.cutomer;
+package kevin.test.customer;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Component;
