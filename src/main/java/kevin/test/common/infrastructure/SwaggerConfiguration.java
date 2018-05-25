@@ -2,7 +2,6 @@ package kevin.test.common.infrastructure;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -20,6 +19,7 @@ public class SwaggerConfiguration {
         return new Docket(SWAGGER_2)
                 .select()
                 .paths(any())
+                .apis(basePackage("kevin.test"))
                 .build()
                 .apiInfo(metaData());
     }
