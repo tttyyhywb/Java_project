@@ -17,8 +17,8 @@ public class CustomerController {
     }
 
     @PostMapping("customers")
-    public void save(@RequestBody Customer customer){
-        customerApplication.save(customer);
+    public Customer save(@RequestBody Customer customer){
+        return customerApplication.save(customer);
     }
 
 }

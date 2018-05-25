@@ -17,7 +17,7 @@ public class CustomerApplication {
         return customerRepository.findById(id.getId());
     }
 
-    public void save(Customer customer) {
-        customerRepository.insert(customer);
+    public Customer save(Customer customer) {
+        return customerRepository.insert(customer);
     }
 }
