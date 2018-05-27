@@ -2,6 +2,7 @@ package kevin.test.customer;
 
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -19,5 +20,9 @@ public class CustomerApplication {
 
     public Customer save(Customer customer) {
         return customerRepository.insert(customer);
+    }
+
+    public List<Customer> allCustomers() {
+        return customerRepository.findAll();
     }
 }

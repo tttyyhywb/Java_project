@@ -2,6 +2,8 @@ package kevin.test.customer;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class CustomerController {
 
@@ -14,6 +16,11 @@ public class CustomerController {
     @GetMapping("customers/{customerId}")
     public Customer by(@PathVariable CustomerId customerId) {
         return customerApplication.getCustomer(customerId).get();
+    }
+
+    @GetMapping("customers")
+    public List<Customer> customers(){
+        return customerApplication.allCustomers();
     }
 
     @PostMapping("customers")
