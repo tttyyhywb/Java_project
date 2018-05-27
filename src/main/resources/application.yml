@@ -1,0 +1,3 @@
+spring:
+  profiles:
+    active: local # default profile, can be override by cli args or ENV
