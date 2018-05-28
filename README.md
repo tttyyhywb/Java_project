@@ -27,8 +27,7 @@ all roles:
 > * dbAdminAnyDatabase: only used in admin, give all dbAdmin's authorities to user
 > * root: only userd in admin. super user, super authorities
 
-##How to connect to local DataBase
-
+##Connect to a specified database in service
 ####1.start a database service in local host with docker
 > * 1.1 first you should run this in command 'docker run -p 27017:27017 -v $PWD/db:/data/db -d mongo' to start a mongodb service
 > * 1.2 then you should run this 'docker run -it mongo mongo --host 172.17.0.1' to connect to the service which started in step 1
@@ -46,6 +45,3 @@ you can connect to the local mongoDB service after config this 3 properties
 > * 3.4 restart the mongodb service with 'run -p 27017:27017 -v $PWD/db:/data/db -d mongo --auth'
 > * 3.5 and now if you want to do something in database you should auth(db.auth('username','password')) firstly and have the rights
 > * 3.6 then you should config another 2 properties (username , password) 
-
-##How to exec shell command in docker container
-> * docker exec -it container-name bash
