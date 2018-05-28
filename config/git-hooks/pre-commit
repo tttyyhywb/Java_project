@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo 'Checking Style ...'
+./gradlew :check
