@@ -1,3 +1,4 @@
+
 group 'Kevin'
 version '1.0-SNAPSHOT'
 
@@ -37,3 +38,10 @@ dependencies {
 }
 
 
+
+processResources {
+    copy {
+        from 'config/git-hooks'
+        into '.git/hooks'
+    }
+}
