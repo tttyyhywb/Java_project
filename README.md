@@ -12,3 +12,6 @@
 > * database: test
 you can connect to the local mongoDB service after config this 3 properties
 
+##How to exec shell command in docker container
+> * docker exec -it container-name bash
+
