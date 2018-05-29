@@ -36,7 +36,7 @@ all roles:
 > * host: localhost
 > * port: 27017
 > * database: test
-you can connect to the local mongoDB service after config this 3 properties
+you can connect to the local mongoDB service after configing this 3 properties
 
 ####3.authentication
 > * 3.1 use 'db.createUser()' method to add a user to the specified database(remember to switch to the database with command 'use database-name'')
