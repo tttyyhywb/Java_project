@@ -38,10 +38,35 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    apiTest {
+        resources {
+            srcDirs.add(file("src/apiTest/resources"))
+        }
+        compileClasspath += main.output + test.output
+        runtimeClasspath += main.output + test.output
+    }
+}
+
+configurations {
+    apiTestCompile.extendsFrom testCompile
+    apiTestRuntime.extendsFrom testRuntime
+}
+
+idea {
+    module {
+        testSourceDirs += file('src/apiTest/java')
+        testSourceDirs += file('src/apiTest/resources')
+        scopes.TEST.plus += [configurations.apiTestCompile]
+        scopes.TEST.plus += [configurations.apiTestRuntime]
+    }
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile group: 'com.github.tomakehurst', name: 'wiremock', version: '2.18.0'
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('io.rest-assured:rest-assured')
 
     compile('org.springframework.boot:spring-boot-starter')
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
