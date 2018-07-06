@@ -53,6 +53,15 @@ configurations {
     apiTestRuntime.extendsFrom testRuntime
 }
 
+task apiTest(type: Test) {
+    testClassesDir = sourceSets.apiTest.output.classesDir
+    classpath = sourceSets.apiTest.runtimeClasspath
+}
+
+apiTest {
+    systemProperties System.properties
+}
+
 idea {
     module {
         testSourceDirs += file('src/apiTest/java')
@@ -84,6 +93,9 @@ dependencies {
 bootJar {
     launchScript()
 }
+
+apiTest.mustRunAfter test
+build.dependsOn apiTest
 
 
 task wrapper(type: Wrapper) {
